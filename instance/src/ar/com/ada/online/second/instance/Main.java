@@ -30,7 +30,6 @@ public class Main {
         TieStarfighter enimyShip3 = new TieStarfighter(22);
         TieStarfighter enimyShip4 = new TieStarfighter("Z-23",22);
         TieStarfighter enimyShip5 = new TieStarfighter(22,"Z-23");
-        enimyShip1.toString();
 
         System.out.println("");
     }
