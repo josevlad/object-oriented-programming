@@ -4,27 +4,37 @@ public class Main {
 
     public static void main(String[] args) {
         System.out.println("Instance:");
-//	    XWingStarfighter ship1 = new XWingStarfighter();
-//
-//        ship1.model = "T-75";
-//        ship1.shootLaser();
-//
-//        // esta variable toma la referencia en memoria
-//        // de la instancia creada en ship1
-//        XWingStarfighter shipRef1 = new XWingStarfighter();
-//
-//        shipRef1.shootLaser();
-//        shipRef1.model = "T-65"; // tecnicamente le estoy cambiando el valor de model a ship1 tambien.
-//        shipRef1.shootLaser();
-//        ship1.shootLaser();
 
+        // two intances
+        XWingStarfighter ship1 = new XWingStarfighter();
+        XWingStarfighter ship2 = new XWingStarfighter();
 
-//        XWingStarfighter ship2 = new XWingStarfighter();
-//
-//        ship2.model = "T-65";
-//        ship2.maxAcceleration = 16;
-//        ship2.shootLaser();
+        // set state
+        ship1.model = "T-65";
+        ship1.maxAcceleration = 16;
 
+        ship2.model = "T-75";
+        ship2.maxAcceleration = 22;
+
+        // excecute method
+        ship1.shootLaser();
+        ship2.shootLaser();
+
+// ####################################################################
+
+        // copy reference of variable
+        XWingStarfighter shipRef1 = ship1;
+
+        // set state from shipRef1
+        shipRef1.model = "T-75"; // tecnicamente le estoy cambiando el valor de model a ship1 tambien.
+
+        // excecute method
+        shipRef1.shootLaser();
+        ship1.shootLaser();
+
+// ####################################################################
+
+        // overloading contructors
         TieStarfighter enimyShip1 = new TieStarfighter();
         TieStarfighter enimyShip2 = new TieStarfighter("Z-23");
         TieStarfighter enimyShip3 = new TieStarfighter(22);
