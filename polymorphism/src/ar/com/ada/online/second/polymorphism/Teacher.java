@@ -1,5 +1,8 @@
 package ar.com.ada.online.second.polymorphism;
 
+import java.util.Objects;
+import java.util.Scanner;
+
 public class Teacher extends Person {
 
     private String area;
@@ -44,6 +47,23 @@ public class Teacher extends Person {
         System.out.print("\n");
     }
 
+    public static Teacher createTeacher(Scanner keyboard) {
+        System.out.printf("Ingrese el nombre del prof");
+        String name = keyboard.nextLine();
+
+        System.out.printf("Ingrese el apellido del prof");
+        String lastName = keyboard.nextLine();
+
+        System.out.printf("Ingrese el are del prof");
+        String area = keyboard.nextLine();
+
+        System.out.printf("Ingrese la materia del prof");
+        String matter = keyboard.nextLine();
+
+        return new Teacher(name, lastName, area, matter);
+    }
+
+
     @Override
     public String toString() {
         return String.format(
@@ -53,5 +73,20 @@ public class Teacher extends Person {
                 getName(),
                 getLastName()
         );
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Teacher that = (Teacher) obj;
+        return super.equals(obj) &&
+                matter.equals(that.matter) &&
+                area.equals(that.matter);
+    }
+
+    @Override
+    public int hashCode() {
+        return 35 * Objects.hash(super.hashCode(), matter, area);
     }
 }

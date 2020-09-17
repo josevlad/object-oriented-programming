@@ -1,9 +1,12 @@
 package ar.com.ada.online.second.polymorphism;
 
+import java.util.Objects;
+import java.util.Scanner;
+
 public class Person {
 
-    private String name;
-    private String lastName;
+    protected String name;
+    protected String lastName;
 
     public Person() {
     }
@@ -44,5 +47,19 @@ public class Person {
                 this.name,
                 this.lastName
         );
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Person that = (Person) obj;
+        return name.equals(that.name) &&
+                lastName.equals(that.lastName);
+    }
+
+    @Override
+    public int hashCode() {
+        return 50 * Objects.hash(name, lastName);
     }
 }

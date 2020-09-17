@@ -11,20 +11,13 @@ public class Main {
 //
 //        Teacher[] teachers = { teacherOne, teacherTwo };
 
+        Scanner keyboard = new Scanner(System.in);
         Teacher[] teachers = new Teacher[2];
+        Stundent[] stundents = new Stundent[2];
 
         for (int i = 0; i < teachers.length; i++) {
-            Scanner keyboard = new Scanner(System.in);
-            System.out.printf("Ingrese el nombre del prof");
-            String name = keyboard.nextLine();
-            System.out.printf("Ingrese el apellido del prof");
-            String lastName = keyboard.nextLine();
-            System.out.printf("Ingrese el are del prof");
-            String area = keyboard.nextLine();
-            System.out.printf("Ingrese la materia del prof");
-            String matter = keyboard.nextLine();
-
-            teachers[i] = new Teacher(name, lastName, area, matter);
+            teachers[i] = Teacher.createTeacher(keyboard);
+            stundents[i] = Stundent.createStundent(keyboard);
         }
 
         for (Teacher teacher : teachers) {

@@ -1,5 +1,8 @@
 package ar.com.ada.online.second.polymorphism;
 
+import java.util.Objects;
+import java.util.Scanner;
+
 public class Stundent extends Person {
 
     private Integer enrolmnet;
@@ -44,6 +47,22 @@ public class Stundent extends Person {
         System.out.print("\n");
     }
 
+    public static Stundent createStundent(Scanner keyboard) {
+        System.out.printf("Ingrese el nombre del Estudiante");
+        String name = keyboard.nextLine();
+
+        System.out.printf("Ingrese el apellido del Estudiante");
+        String lastName = keyboard.nextLine();
+
+        System.out.printf("Ingrese la matricula del Estudiante");
+        Integer enrolmnet = Integer.parseInt(keyboard.nextLine());
+
+        System.out.printf("Ingrese la carrera del Estudiante");
+        String career = keyboard.nextLine();
+
+        return new Stundent(name, lastName, enrolmnet, career);
+    }
+
     @Override
     public String toString() {
         return String.format(
@@ -53,5 +72,20 @@ public class Stundent extends Person {
                 getName(),
                 getLastName()
         );
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Stundent that = (Stundent) obj;
+        return super.equals(obj) &&
+                enrolmnet.equals(that.enrolmnet) &&
+                career.equals(that.career);
+    }
+
+    @Override
+    public int hashCode() {
+        return 30 * Objects.hash(super.hashCode(), enrolmnet, career);
     }
 }
