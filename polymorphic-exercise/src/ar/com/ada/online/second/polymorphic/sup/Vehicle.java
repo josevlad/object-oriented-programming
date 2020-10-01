@@ -3,7 +3,7 @@ package ar.com.ada.online.second.polymorphic.sup;
 import java.time.Year;
 import java.util.Objects;
 
-public class Vehicle {
+public abstract class Vehicle {
 
     protected String brand;
     protected String model;
@@ -56,9 +56,7 @@ public class Vehicle {
         this.year = Year.of(year);
     }
 
-    public String technicalSheet() {
-        return null;
-    }
+    public abstract String technicalSheet();
 
     @Override
     public String toString() {
